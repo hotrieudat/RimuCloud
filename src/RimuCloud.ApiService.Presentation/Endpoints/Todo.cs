@@ -1,11 +1,14 @@
 ﻿using Carter;
+using Mediator;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
+using RimuCloud.Application.Todo;
+using RimuCloud.Shared.Request;
 
 namespace RimuCloud.ApiService.Presentation.Endpoints
 {
-    public class Todo : ICarterModule
+    public class Todo : AbstractEndpoint, ICarterModule
     {
         public void AddRoutes(IEndpointRouteBuilder app)
         {
@@ -28,6 +31,14 @@ namespace RimuCloud.ApiService.Presentation.Endpoints
                 return forecast;
             })
             .WithName("GetTodo");
+
+            group.MapPost("", async (CreateTodoRequest request, IMediator mediator, CancellationToken cancellationToken) =>
+            {
+                var result = await mediator.Send(new CreateTodoCommand(request), cancellationToken);
+                if (result.IsFailure) return HandlerFailure(result);
+                return ResponseOk(result);
+            })
+            .WithName("CreateTodo");
         }
     }
 

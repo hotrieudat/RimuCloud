@@ -1,8 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Npgsql;
-using RimuCloud.Infrastructure.DependencyInjection.Configurations;
-using RimuCloud.Infrastructure.Postgres;
+using RimuCloud.Persistence.DependencyInjection.Configurations;
+using RimuCloud.Persistence.Postgres;
 using RimuCloud.MigrationService;
 
 var builder = Host.CreateApplicationBuilder(args);

@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 using Microsoft.EntityFrameworkCore;
-using RimuCloud.Infrastructure.Postgres;
+using RimuCloud.Persistence.Postgres;
 
 namespace RimuCloud.MigrationService;
 

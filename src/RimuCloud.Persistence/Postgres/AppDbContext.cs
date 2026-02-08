@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using RimuCloud.Domain.Entities;
 
-namespace RimuCloud.Infrastructure.Postgres
+namespace RimuCloud.Persistence.Postgres
 {
     public class AppDbContext : DbContext
     {

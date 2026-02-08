@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\RimuCloud.Application\RimuCloud.Application.csproj" />
     <ProjectReference Include="..\RimuCloud.Shared\RimuCloud.Shared.csproj" />
   </ItemGroup>
 

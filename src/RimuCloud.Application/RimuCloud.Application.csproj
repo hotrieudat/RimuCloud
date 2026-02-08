@@ -6,4 +6,18 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\RimuCloud.Abstractions\RimuCloud.Abstractions.csproj" />
+    <ProjectReference Include="..\RimuCloud.Domain\RimuCloud.Domain.csproj" />
+    <ProjectReference Include="..\RimuCloud.Shared\RimuCloud.Shared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" />
+    <PackageReference Include="Mapster" />
+    <PackageReference Include="Mapster.DependencyInjection" />
+    <PackageReference Include="Mediator.Abstractions" />
+  </ItemGroup>
+
 </Project>

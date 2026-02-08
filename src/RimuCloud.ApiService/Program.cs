@@ -2,6 +2,8 @@ using Carter;
 using Microsoft.AspNetCore.HttpOverrides;
 using RimuCloud.ApiService.DependencyInjection.Extensions;
 using RimuCloud.Infrastructure.DependencyInjection.Extensions;
+using RimuCloud.Persistence.DependencyInjection.Extensions;
+using RimuCloud.Application.DependencyInjection.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,8 +17,14 @@ builder.Services.Configure<ForwardedHeadersOptions>(options =>
 
 // Add service defaults & Aspire client integrations.
 builder.AddServiceDefaults();
-// Add Logger
-builder.Services.AddLoggerManager();
+
+builder.Services.AddInfrastructure(builder.Configuration);
+builder.Services.AddPersistence(builder.Configuration);
+builder.Services.AddApplication();
+MediatorDependencyInjectionExtensions.AddMediator(builder.Services, options =>
+{
+    options.ServiceLifetime = ServiceLifetime.Scoped;
+});
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace RimuCloud.Infrastructure.DependencyInjection.Configurations
+namespace RimuCloud.Persistence.DependencyInjection.Configurations
 {
     public class DbConfig
     {

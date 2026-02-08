@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
 
-namespace RimuCloud.Application.Core
+namespace RimuCloud.Application
 {
     public static class AssemblyReference
     {
