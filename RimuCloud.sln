@@ -37,6 +37,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RimuCloud.MigrationService"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RimuCloud.Application", "src\RimuCloud.Application\RimuCloud.Application.csproj", "{74460B38-EDBF-4BC2-BD8F-76B090DE189E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RimuCloud.ApiService.Presentation", "src\RimuCloud.ApiService.Presentation\RimuCloud.ApiService.Presentation.csproj", "{951D8F01-08D0-4C6D-B980-9A00D04D377B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -91,6 +93,10 @@ Global
 		{74460B38-EDBF-4BC2-BD8F-76B090DE189E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{74460B38-EDBF-4BC2-BD8F-76B090DE189E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{74460B38-EDBF-4BC2-BD8F-76B090DE189E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{951D8F01-08D0-4C6D-B980-9A00D04D377B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{951D8F01-08D0-4C6D-B980-9A00D04D377B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{951D8F01-08D0-4C6D-B980-9A00D04D377B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{951D8F01-08D0-4C6D-B980-9A00D04D377B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -108,6 +114,7 @@ Global
 		{CF8E0627-7D9E-4ABC-BEC2-22ECB4F9A87D} = {1A81752D-1BD5-495F-A7C0-A0501C178D95}
 		{3864FECB-3F39-EE1C-2B9B-02EE8A66BC12} = {1A81752D-1BD5-495F-A7C0-A0501C178D95}
 		{74460B38-EDBF-4BC2-BD8F-76B090DE189E} = {1A81752D-1BD5-495F-A7C0-A0501C178D95}
+		{951D8F01-08D0-4C6D-B980-9A00D04D377B} = {1A81752D-1BD5-495F-A7C0-A0501C178D95}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7E20717D-2F94-4ED9-AD78-4CF4C5746CC5}

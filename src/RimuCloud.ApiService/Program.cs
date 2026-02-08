@@ -1,3 +1,4 @@
+using Carter;
 using Microsoft.AspNetCore.HttpOverrides;
 using RimuCloud.ApiService.DependencyInjection.Extensions;
 using RimuCloud.Infrastructure.DependencyInjection.Extensions;
@@ -27,6 +28,8 @@ builder.Services.AddProblemDetails();
 builder.Services.AddOpenApi();
 builder.Services.CorsConfiguration();
 
+builder.Services.AddCarter();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -41,29 +44,10 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-string[] summaries = ["Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"];
-
-app.MapGet("/api/weatherforecast", () =>
-{
-    var forecast = Enumerable.Range(1, 5).Select(index =>
-        new WeatherForecast
-        (
-            DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            Random.Shared.Next(-20, 55),
-            summaries[Random.Shared.Next(summaries.Length)]
-        ))
-        .ToArray();
-    return forecast;
-})
-.WithName("GetWeatherForecast");
-
 app.MapDefaultEndpoints();
 
 app.UseCors("AllowAll");
 
-app.Run();
+app.MapCarter();
 
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}
+app.Run();

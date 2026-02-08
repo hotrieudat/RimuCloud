@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\RimuCloud.ApiService.Presentation\RimuCloud.ApiService.Presentation.csproj" />
     <ProjectReference Include="..\RimuCloud.Infrastructure\RimuCloud.Infrastructure.csproj" />
     <ProjectReference Include="..\RimuCloud.Persistence\RimuCloud.Persistence.csproj" />
     <ProjectReference Include="..\RimuCloud.ServiceDefaults\RimuCloud.ServiceDefaults.csproj" />
