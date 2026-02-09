@@ -1,7 +1,7 @@
 ﻿using RimuCloud.Domain.Entities.Models;
 using RimuCloud.Domain.Interfaces.Repository;
 
-namespace RimuCloud.Persistence.PostgreSQL.Repositories
+namespace RimuCloud.Persistence.PostgreSQL.Repository
 {
     public class TodoRepository : ITodoRepository
     {
