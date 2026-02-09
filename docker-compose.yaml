@@ -1,8 +1,8 @@
-name: rimu-cloud
+name: rimucloud
 services:
-  db:
+  postgres:
     image: pgvector/pgvector:pg18-trixie
-    container_name: postgres
+    container_name: rimucloud-postgres
     environment:
       PGDATA: /var/lib/postgresql/data/pgdata
       POSTGRES_USER: ${POSTGRES_USER}
@@ -19,11 +19,11 @@ services:
       timeout: 3s
       retries: 5
     # restart: always
-  web-api:
+  webapi:
     build:
       context: .
       dockerfile: src/RimuCloud.ApiService/Dockerfile
-    container_name: web-api
+    container_name: rimucloud-webapi
     # ports:
     #   - "${WEB_API_PORT}:8080"
     environment:
@@ -37,18 +37,18 @@ services:
       - DbConfig__Password=${POSTGRES_PASSWORD}
       - DbConfig__DbName=${POSTGRES_DB}
     volumes:
-      - /data/rimu-cloud/logs/web-api:/var/log
+      - /data/rimucloud/logs/web-api:/var/log
     depends_on:
       migration:
         condition: service_completed_successfully
-      db:
+      postgres:
         condition: service_healthy
     # restart: always
   migration:
     build:
       context: .
       dockerfile: src/RimuCloud.MigrationService/Dockerfile
-    container_name: migration
+    container_name: rimucloud-migration
     environment:
       - TZ=${TZ}
       - DOTNET_HOSTBUILDER__RELOADCONFIGONCHANGE=false
@@ -59,14 +59,14 @@ services:
       - DbConfig__Password=${POSTGRES_PASSWORD}
       - DbConfig__DbName=${POSTGRES_DB}
     volumes:
-      - /data/rimu-cloud/logs/migration:/var/log
+      - /data/rimucloud/logs/migration:/var/log
     #restart: always
     depends_on:
-      db:
+      postgres:
         condition: service_healthy
-  reverse-proxy:
+  nginx:
     image: nginx:stable-alpine
-    container_name: reverse-proxy
+    container_name: rimucloud-nginx
     ports:
       - 80:80
       - "${NGINX_LISTEN_PORT}:443"
@@ -75,7 +75,7 @@ services:
       - ./conf/nginx/nginx-selfsigned.crt:/etc/nginx/ssl/nginx-selfsigned.crt
       - ./conf/nginx/nginx-selfsigned.key:/etc/nginx/ssl/nginx-selfsigned.key
     depends_on:
-      - web-api
+      - webapi
 # volumes:
 #   postgres_data:
 #   solr_data:
