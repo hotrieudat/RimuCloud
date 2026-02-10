@@ -4,7 +4,7 @@ using Mediator;
 using RimuCloud.Abstractions.Logger;
 using RimuCloud.Application.Abstractions;
 using RimuCloud.Authorizations.CustomResult.Requirements;
-using RimuCloud.Domain.Entities.Models;
+using RimuCloud.Domain.Entity.Models;
 using RimuCloud.Domain.Interfaces.Repository;
 using RimuCloud.Shared.CustomResult;
 using RimuCloud.Shared.Request;

@@ -1,4 +1,4 @@
-namespace RimuCloud.Domain.Abstractions
+namespace RimuCloud.Domain.Entity.Base
 {
     public abstract class EntityBase<TKey> 
     {

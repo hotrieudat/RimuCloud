@@ -1,5 +1,5 @@
 ﻿
-namespace RimuCloud.Domain.Entities.ErrorModel
+namespace RimuCloud.Domain.Entity.ErrorModel
 {
     public sealed record ValidationError(IEnumerable<string> Errors);
 }

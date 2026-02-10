@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace RimuCloud.Domain.Entities
+namespace RimuCloud.Domain.Entity
 {
     public class Entry
     {

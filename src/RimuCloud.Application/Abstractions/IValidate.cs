@@ -1,5 +1,5 @@
 ﻿using Mediator;
-using RimuCloud.Domain.Entities.ErrorModel;
+using RimuCloud.Domain.Entity.ErrorModel;
 using System.Diagnostics.CodeAnalysis;
 
 

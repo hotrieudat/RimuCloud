@@ -22,7 +22,7 @@ namespace RimuCloud.MigrationService.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("RimuCloud.Domain.Entities.Entry", b =>
+            modelBuilder.Entity("RimuCloud.Domain.Entity.Entry", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()

@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using RimuCloud.Domain.Abstractions;
+using RimuCloud.Domain.Entity.Base;
 using RimuCloud.Domain.Interfaces.Repository;
 using RimuCloud.Persistence.Postgres;
 

@@ -1,4 +1,4 @@
-﻿using RimuCloud.Domain.Entities.Models;
+﻿using RimuCloud.Domain.Entity.Models;
 using RimuCloud.Domain.Interfaces.Repository;
 
 namespace RimuCloud.Persistence.PostgreSQL.Repository

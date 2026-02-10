@@ -1,7 +1,7 @@
 ﻿using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore;
-using RimuCloud.Domain.Abstractions;
-using RimuCloud.Domain.Entities;
+using RimuCloud.Domain.Entity.Base;
+using RimuCloud.Domain.Entity;
 
 namespace RimuCloud.Persistence.Postgres
 {

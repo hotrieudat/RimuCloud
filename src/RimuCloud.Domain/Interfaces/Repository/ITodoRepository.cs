@@ -1,4 +1,4 @@
-﻿using RimuCloud.Domain.Entities.Models;
+﻿using RimuCloud.Domain.Entity.Models;
 
 namespace RimuCloud.Domain.Interfaces.Repository
 {

@@ -1,4 +1,4 @@
-﻿namespace RimuCloud.Domain.Entities.Models
+﻿namespace RimuCloud.Domain.Entity.Models
 {
     public class TodoEntity()
     {

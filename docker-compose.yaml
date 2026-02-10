@@ -37,7 +37,7 @@ services:
       - DbConfig__Password=${POSTGRES_PASSWORD}
       - DbConfig__DbName=${POSTGRES_DB}
     volumes:
-      - /data/rimucloud/logs/web-api:/var/log
+      - ./.docker-volumes/webapi/logs:/var/log
     depends_on:
       migration:
         condition: service_completed_successfully
@@ -59,7 +59,7 @@ services:
       - DbConfig__Password=${POSTGRES_PASSWORD}
       - DbConfig__DbName=${POSTGRES_DB}
     volumes:
-      - /data/rimucloud/logs/migration:/var/log
+      - ./.docker-volumes/migration/logs:/var/log
     #restart: always
     depends_on:
       postgres:
