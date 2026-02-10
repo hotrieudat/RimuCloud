@@ -2,10 +2,12 @@
 using Microsoft.EntityFrameworkCore;
 using RimuCloud.Domain.Entity.Base;
 using RimuCloud.Domain.Entity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 namespace RimuCloud.Persistence.Postgres
 {
-    public class AppDbContext : DbContext
+    public class AppDbContext : IdentityDbContext<UserEntity, RoleEntity, Guid>
     {
         private readonly string _currentUserId;
 
@@ -22,6 +24,7 @@ namespace RimuCloud.Persistence.Postgres
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+            ChangeIdentityTableName(modelBuilder);
     
             // Tự động quét và áp dụng Global Query Filter cho các thực thể ISoftDelete
             foreach (var entityType in modelBuilder.Model.GetEntityTypes())
@@ -92,6 +95,15 @@ namespace RimuCloud.Persistence.Postgres
                 }
             }
         }
-
+        private void ChangeIdentityTableName(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<UserEntity>(b =>b.ToTable("users"));
+            modelBuilder.Entity<IdentityUserClaim<Guid>>(b => b.ToTable("user_claims"));
+            modelBuilder.Entity<IdentityUserLogin<Guid>>(b => b.ToTable("user_logins"));
+            modelBuilder.Entity<IdentityUserToken<Guid>>(b => b.ToTable("user_tokens"));
+            modelBuilder.Entity<RoleEntity>(b => b.ToTable("roles"));
+            modelBuilder.Entity<IdentityRoleClaim<Guid>>(b => b.ToTable("role_claims"));
+            modelBuilder.Entity<IdentityUserRole<Guid>>(b => b.ToTable("user_roles"));
+        }
     }
 }
